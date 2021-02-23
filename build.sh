@@ -18,16 +18,13 @@ if [ "$LOOKUP" != "v12.20.1" ] ; then
     exit 1
 fi
 
-docker tag shukriadams/node12build:latest shukriadams/node12build:"${TAG}${ARCHITECTURE}"
-
-
 if [ $DOCKERPUSH -eq 1 ]; then
     TAG=$(git describe --tags --abbrev=0) 
     # ARCHITECTURE=""    # set to -ARM if necessary
 
-    docker tag shukriadams/node12build:latest shukriadams/node12build:"${TAG}${ARCHITECTURE}"
+    docker tag shukriadams/node12build:latest shukriadams/node12build:$TAG$ARCHITECTURE
     docker login -u $DOCKER_USER -p $DOCKER_PASS 
-    docker push shukriadams/node12build:"${TAG}${ARCHITECTURE}"
+    docker push shukriadams/node12build:$TAG$ARCHITECTURE
 fi
 
 echo "build complete"

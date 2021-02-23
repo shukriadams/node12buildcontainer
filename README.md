@@ -44,7 +44,6 @@ On ARM
     
     docker tag shukriadams/node12build:latest shukriadams/node12build:x.y.z-arm
     
-Push (for me only)
 
     docker push shukriadams/node12build:x.y.z
     docker push shukriadams/node12build:latest

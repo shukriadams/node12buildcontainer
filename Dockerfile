@@ -7,6 +7,7 @@ RUN apk update &&\
     apk upgrade &&\
     apk add git &&\
     apk add bash &&\
+    apk add rsync &&\
     apk add sshpass=1.06-r0 &&\
     apk add curl ca-certificates openssh &&\
     apk add nodejs=12.20.1-r0 &&\

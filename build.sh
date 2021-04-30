@@ -20,6 +20,7 @@ fi
 if [ $DOCKERPUSH -eq 1 ]; then
     TAG=$(git describe --tags --abbrev=0) 
     ARMCHECK=$(lscpu|grep arm)
+    ARCHITECTURE=""
     if [ ! -z "$ARMCHECK" ]; then
         ARCHITECTURE="-arm"
     fi

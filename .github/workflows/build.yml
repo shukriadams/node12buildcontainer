@@ -7,6 +7,9 @@ jobs:
     buildArm:
         runs-on: self-hosted
         steps:
+        # clean before building    
+        - name: cleanup
+          run : rm -rf *
         - uses: actions/checkout@v1
         - name: builds and pushes the container
           run:  sh ./build.sh --dockerpush

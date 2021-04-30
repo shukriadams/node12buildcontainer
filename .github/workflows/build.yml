@@ -4,12 +4,23 @@ on:
     tags:
       - '*'
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: builds and pushes the container
-        run:  sh ./build.sh --dockerpush
-        env:
-            DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+    buildArm:
+        runs-on: self-hosted
+        steps:
+        - uses: actions/checkout@v1
+        - name: builds and pushes the container
+            run:  sh ./build.sh --dockerpush
+            env:
+                DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+                DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        
+
+    buildx86:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - name: builds and pushes the container
+            run:  sh ./build.sh --dockerpush
+            env:
+                DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+                DOCKER_USER: ${{ secrets.DOCKER_USER }}

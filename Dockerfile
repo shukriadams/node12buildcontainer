@@ -10,8 +10,8 @@ RUN apk update &&\
     apk add rsync &&\
     apk add sshpass=1.06-r0 &&\
     apk add curl ca-certificates openssh &&\
-    apk add nodejs=12.21.0-r0 &&\
-    apk add npm=12.21.0-r0 &&\
+    apk add nodejs=12.22.1-r0 &&\
+    apk add npm=12.22.1-r0 &&\
     npm install yarn@1.17.3 -g &&\
     npm install webpack@4.39.1 -g &&\
     npm install webpack-cli@3.3.6 -g &&\

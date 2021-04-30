@@ -1,7 +1,6 @@
 set -e
 
 DOCKERPUSH=0
-
 while [ -n "$1" ]; do 
     case "$1" in
     --dockerpush) DOCKERPUSH=1 ;;
@@ -20,7 +19,10 @@ fi
 
 if [ $DOCKERPUSH -eq 1 ]; then
     TAG=$(git describe --tags --abbrev=0) 
-    # ARCHITECTURE=""    # set to -ARM if necessary
+    ARMCHECK=$(lscpu|grep arm)
+    if [ ! -z "$ARMCHECK" ]; then
+        ARCHITECTURE="-arm"
+    fi
 
     docker tag shukriadams/node12build:latest shukriadams/node12build:$TAG$ARCHITECTURE
     docker login -u $DOCKER_USER -p $DOCKER_PASS 

@@ -13,7 +13,7 @@ docker build -t shukriadams/node12build .
 
 #test 
 LOOKUP=$(docker run shukriadams/node12build:latest bash -c "node -v") 
-if [ "$LOOKUP" != "v12.21.0" ] ; then
+if [ "$LOOKUP" != "v12.22.1" ] ; then
     echo "ERROR : container returned unexpected string ${LOOKUP}"
     exit 1
 fi

@@ -21,6 +21,8 @@ RUN apk update &&\
     npm install concat-cli@4.0.0 -g &&\
     npm install typescript@3.5.3 -g &&\
     npm install tslint@5.18.0 -g &&\
+    npm install nyc@15.1.0 -g &&\
+    npm install pkg@5.1.0 -g &&\
     mkdir -p /usr/keys &&\
     mkdir -p /usr/build 
 
